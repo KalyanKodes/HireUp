@@ -11,6 +11,7 @@
         body{
             overflow: hidden;
             width: 100vw;
+            position: relative;
             height: 100vh;
         }
         *{
@@ -20,28 +21,54 @@
             font-family: "Poppins";
         }
         main{
+            position: absolute;
+            top: 80px;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            /* z-index: -1; */
             transform: translateY(-10px);
+            display: grid;
+            grid-template-columns: 20% 1fr; 
+            grid-template-rows: 1fr;
+            background-color: yellow;
+            transition: .3s;
         }
+        .mainNav.hide{
+           grid-template-columns: 40px 1fr; 
+           /* transform: translate(0 , -350px); */
+       }
     </style>
   </head>
     <body>
 
 
         <header >
-            <iframe src="./Frames/header.html" frameborder="0" class="HeaderIframe" width="100%" height="80px"></iframe>
+            <iframe src="./Frames/header.html" frameborder="0" class="HeaderIframe" width="100%" height="80px">
+                
+            </iframe>
         </header>
 
 
-
-        <main style="display: grid; grid-template-columns: 20% 1fr; grid-template-rows: 915px;">
-
-            <article style="  background-color: rgb(73, 73, 61);">
-                <iframe src="./Frames/homeleftArticle.html" frameborder="0" width="100%" height="100%" style="position: relative;" name="subCategories" ></iframe>
+        
+        <main class="mainNav">
+            <article>
+                <iframe   src="./Frames/homeleftArticle.html" frameborder="0" width="100%" height="100%" style="transition: .3s;  background-color: rgb(105, 105, 126);" name="subCategories" ></iframe>
             </article>
             
-            <article style="  background-color: rgb(104, 104, 79);"">
-                <iframe src="./Frames/rightArticle.html" style="background-color: rgb(19, 90, 131);" width="100%" height="100%" frameborder="0"></iframe>
+            <article style="  background-color: rgb(104, 104, 79); width: 100%; height: 100%;" >
+                <iframe  style="background-color: rgb(255, 255, 255);" width="100%" height="100%"  name="subCategoriesDetails" src="./SubComponents/whyHireUp.html" style="padding: 30px;" frameborder="0"></iframe>
             </article>
         </main>
+
+
+        <script>
+            window.addEventListener("message", (e) => {
+                if (e.data.action === "transformIframe") {
+                    const categoryElement = document.querySelector(".mainNav");
+                    categoryElement.classList.toggle('hide')
+                }
+            });
+        </script>
     </body>
 </html>
