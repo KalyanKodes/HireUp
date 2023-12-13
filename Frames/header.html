@@ -3,25 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Header</title>
     <link rel="stylesheet" href="./framesStyles.css" />
   </head>
   <body>
     <div class="header-container">
       <img src="../Assests/logo.png" alt="BrandLogo" width="200" height="50" />
-      <ul>
+      <ul class="header-ul">
         <li>
-          <a href="./home.html" style="color: rgb(63, 48, 48)" target="category"
+          <a
+            href="../Frames/homeleftArticle.html"
+            class="initial"
+            target="subCategories"
             >Home</a
           >
         </li>
         <li>
-          <a href="./10thStandard.html" target="category">10th Standard</a>
+          <a href="./10thStandardLeftArticle.html" target="subCategories"
+            >10th Standard</a
+          >
         </li>
-        <li><a href="#">Intermediate</a></li>
-        <li><a href="#">Engineering</a></li>
-        <li><a href="#">Degree</a></li>
+        <li>
+          <a href="./interLeftArticle.html" target="subCategories"
+            >Intermediate</a
+          >
+        </li>
+        <li>
+          <a
+            href="./engineeringLeftArticle.html"
+            class="eng"
+            target="subCategories"
+            >Engineering</a
+          >
+        </li>
+        <li>
+          <a href="./degreeLeftArticle.html" target="subCategories">Degree</a>
+        </li>
+        <li><button>Sign UP</button></li>
       </ul>
     </div>
   </body>
+  <script>
+    document.querySelector(".initial").click();
+  </script>
 </html>
