@@ -13,6 +13,20 @@
       }
       body {
         padding-top: 30px;
+        animation-name: test;
+        animation-iteration-count: 1;
+        animation-duration: 0.3s;
+        animation-timing-function: linear;
+      }
+      @keyframes test {
+        from {
+          transform: translate(-1000px, 0);
+          opacity: 0;
+        }
+        to {
+          transform: translate(0px, 0);
+          opacity: 1;
+        }
       }
       h1 {
         text-align: center;

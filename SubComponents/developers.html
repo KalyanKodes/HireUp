@@ -18,6 +18,10 @@
         justify-content: space-around;
         align-items: center;
         gap: 50px;
+        animation-name: test;
+        animation-iteration-count: 1;
+        animation-duration: 0.3s;
+        animation-timing-function: linear;
       }
       h1,
       h6 {
@@ -36,6 +40,16 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+      }
+      @keyframes test {
+        from {
+          transform: translate(-1000px, 0);
+          opacity: 0;
+        }
+        to {
+          transform: translate(0px, 0);
+          opacity: 1;
+        }
       }
 
       img {
