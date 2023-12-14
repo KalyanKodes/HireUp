@@ -82,20 +82,6 @@ ul :nth-child(1) a {
   color: rgb(0, 0, 0);
 }
 
-.bx {
-  font-size: 35px;
-  color: #ffffff;
-  position: absolute;
-  right: 0px;
-  top: 10px;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-.bx.rotateLeft {
-  transform: rotate(180deg);
-}
-
 .leftArticle-ul.show {
   display: none;
 }

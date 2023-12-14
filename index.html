@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hire Up</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <!-- <link rel="stylesheet" href="styles.css"> -->
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
@@ -35,9 +39,23 @@
             transition: .3s;
         }
         .mainNav.hide{
-           grid-template-columns: 20% 1fr; 
+           grid-template-columns: 16% 1fr; 
            /* transform: translate(0 , -350px); */
        }
+       .bx {
+            font-size: 35px;
+            color: #ffffff;
+            position: absolute;
+            right: 0px;
+            top: 10px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .bx.rotateLeft {
+            transform: rotate(180deg);
+        }
+
     </style>
   </head>
     <body>
@@ -52,7 +70,8 @@
 
         
         <main class="mainNav">
-            <article>
+            <article style="position: relative;">
+                <i class="bx bx-left-arrow-alt rotateLeft"></i>
                 <iframe   src="./Frames/homeleftArticle.html" frameborder="0" width="100%" height="100%" style="transition: .3s;  background-color: rgb(105, 105, 126);" name="subCategories" ></iframe>
             </article>
             
@@ -63,12 +82,11 @@
 
 
         <script>
-            window.addEventListener("message", (e) => {
-                if (e.data.action === "transformIframe") {
-                    const categoryElement = document.querySelector(".mainNav");
-                    categoryElement.classList.toggle('hide')
-                }
-            });
+           const arrow = document.querySelector('.bx');
+           arrow.addEventListener('click' , ()=>{
+            arrow.classList.toggle('rotateLeft');
+            document.querySelector('.mainNav').classList.toggle('hide');
+           })
         </script>
     </body>
 </html>
