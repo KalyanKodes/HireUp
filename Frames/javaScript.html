@@ -3,13 +3,83 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Left Article</title>
-    <link rel="stylesheet" href="navStyles.css" />
+    <title>JavaScript</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins";
+      }
+
+      body {
+        padding: 30px;
+        background-image: url(javascript.jpeg); /*Background Image property*/
+        background-repeat: no-repeat; /*Background repeat property*/
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 70px;
+      }
+
+      h3 {
+        font-size: 40px;
+        font-weight: 400;
+        text-align: center;
+        color: #fff; /*Color property*/
+      }
+
+      .profiles {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        row-gap: 70px;
+        column-gap: 30px;
+      }
+
+      .profile {
+        width: 300px;
+        height: 320px;
+        background-color: rgba(
+          222,
+          222,
+          255,
+          0.1
+        ); /*Background-color Property*/
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #ccc;
+        padding: 10px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease-in-out;
+        text-align: center;
+        cursor: pointer;
+        gap: 5px;
+        color: #fff;
+      }
+
+      img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+      }
+
+      button {
+        padding: 0 20px;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
     <h3>Mastering JavaScript: Dive into Our Top 6 Essential Lectures</h3>
     <div class="profiles">
-      <!-- Profile 26 -->
       <div class="profile">
         <img src="../Assests/profile_26.jpeg" alt="" />
         <p>Name: <b>Zack</b></p>
@@ -18,7 +88,6 @@
         <button>Hire</button>
       </div>
 
-      <!-- Profile 27 -->
       <div class="profile">
         <img src="../Assests/profile_27.jpeg" alt="" />
         <p>Name: <b>Ava</b></p>
@@ -27,7 +96,6 @@
         <button>Hire</button>
       </div>
 
-      <!-- Profile 28 -->
       <div class="profile">
         <img src="../Assests/profile_28.jpeg" alt="" />
         <p>Name: <b>Brian</b></p>
@@ -36,7 +104,6 @@
         <button>Hire</button>
       </div>
 
-      <!-- Profile 29 -->
       <div class="profile">
         <img src="../Assests/profile_29.jpeg" alt="" />
         <p>Name: <b>Chloe</b></p>
@@ -45,7 +112,6 @@
         <button>Hire</button>
       </div>
 
-      <!-- Profile 30 -->
       <div class="profile">
         <img src="../Assests/profile_30.jpeg" alt="" />
         <p>Name: <b>Dylan</b></p>
@@ -53,7 +119,6 @@
         <p>Rating: 4/5</p>
         <button>Hire</button>
       </div>
-      <!-- Profile 31 -->
       <div class="profile">
         <img src="../Assests/profile_31.jpeg" alt="" />
         <p>Name: <b>Autor</b></p>

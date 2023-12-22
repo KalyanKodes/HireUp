@@ -4,7 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Left Article</title>
-    <link rel="stylesheet" href="framesStyles.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial;
+      }
+      li {
+        list-style: none;
+        text-indent: 50px; /*Text indent Property*/
+      }
+
+      a {
+        list-style: none;
+        color: #fff;
+        text-decoration: none #fff;
+        text-transform: uppercase; /*Text transformation property*/
+        text-align: start; /*Text align Property*/
+        transition: 0.5s;
+      }
+      a:hover {
+        text-decoration: underline #fff; /*Text decoration Property*/
+      }
+
+      .leftArticle-ul {
+        display: flex;
+        gap: 50px;
+        width: 100%;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 8vw;
+      }
+
+      ul :nth-child(1) a {
+        color: rgb(0, 0, 0);
+      }
+    </style>
   </head>
   <body>
     <ul class="leftArticle-ul">
