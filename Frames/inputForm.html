@@ -3,6 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Login Form</title>
     <style>
       * {
@@ -16,8 +23,9 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background-color: #f4f4f4;
+        background-color: #c2b7b7;
         margin: 0;
+        position: relative;
       }
 
       form {
@@ -63,20 +71,160 @@
       input[type="button"]:hover {
         background-color: #45a049;
       }
+
+      /* Starging from this line are the changes applyed for styling new changes */
+      .feedback-container {
+        max-width: 400px;
+        height: 400px;
+        border-radius: 10px;
+        background-color: rgb(141, 141, 141);
+        box-shadow: 0 10px 20px rgba(0, 0, 10, 0.1);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        /* display: none; */
+        opacity: 0;
+        z-index: -1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .feedback-container.show {
+        z-index: 2;
+        opacity: 1;
+        /* display: block; */
+        animation-name: show;
+        animation-duration: 0.1s;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        /* transition: 0.5s; */
+      }
+
+      .fa-circle-xmark {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+
+        font-size: 35px;
+      }
+
+      @keyframes show {
+        from {
+          transform: translate(-50%, -50%) scale(0);
+        }
+        to {
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+
+      .feedback-symbol {
+        font-size: 100px;
+      }
+
+      .fa-circle-check {
+        color: lightgreen;
+      }
+      .fa-bug-slash {
+        color: red;
+      }
+
+      .sucess {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+      }
+      .failed {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .sucess.show {
+        display: flex;
+      }
+      .failed.show {
+        display: flex;
+      }
+
+      /* Up to here */
     </style>
   </head>
   <body>
+    <!-- Starting from here for friday lab -->
+    <div class="feedback-container">
+      <!-- This is a feedback container added for Friday lab -->
+      <i class="fa-solid fa-circle-xmark"></i>
+
+      <div class="sucess">
+        <i class="fa-solid feedback-symbol fa-circle-check"></i>
+        <h1>Login Sucess</h1>
+      </div>
+      <div class="failed">
+        <i class="fa-solid fa-bug-slash feedback-symbol"></i>
+        <h1>Login Failed!</h1>
+      </div>
+    </div>
+
+    <!-- Up to here -->
+
     <form action="#">
       <div>
-        <label for="email">Email</label>
-        <input type="email" required name="email" />
+        <label for="text">Username</label>
+        <input type="text" required name="email" />
       </div>
       <div>
         <label for="password">Password</label>
         <input type="password" required />
       </div>
-      <input type="button" value="Login" onclick="hire()" />
+      <input type="button" value="Login" onclick="login()" />
     </form>
   </body>
-  <script src="script.js"></script>
+
+  <script>
+    // The below 6 lines imports the required elements from the DOM
+    const feedBackContainer = document.querySelector(".feedback-container");
+    const inputUsername = document.querySelector("input[type='text']");
+    const inputPassword = document.querySelector("input[type='password']");
+    const closeSymbol = document.querySelector(".fa-circle-xmark");
+    const loginSucess = document.querySelector(".sucess");
+    const loginFailed = document.querySelector(".failed");
+
+    // Listens to the click event on the cross symbol to close feedback container
+    closeSymbol.addEventListener("click", () => {
+      feedBackContainer.classList.remove("show");
+    });
+    let username = "Admin";
+    let password = "Admin@123";
+
+    // Login function invokes when the login button is clicked
+    function login() {
+      // Checks for empty values
+      if (inputPassword.value == "" || inputUsername == "") {
+        alert("Invalid Details");
+      } else {
+        if (
+          inputPassword.value == password &&
+          inputUsername.value == username
+        ) {
+          feedBackContainer.classList.add("show");
+          if (loginFailed.classList.contains("show")) {
+            loginFailed.classList.remove("show");
+          }
+          loginSucess.classList.add("show");
+        } else {
+          feedBackContainer.classList.add("show");
+          if (loginSucess.classList.contains("show")) {
+            loginSucess.classList.remove("show");
+          }
+          loginFailed.classList.add("show");
+        }
+      }
+    }
+  </script>
 </html>
