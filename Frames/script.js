@@ -1,5 +1,5 @@
 function hire() {
-  alert("This is just a Demo Website");
+  alert("Sent mail");
 }
 
 document.querySelectorAll("button").forEach((b) => {

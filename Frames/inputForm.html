@@ -61,14 +61,14 @@
         font-size: 16px;
       }
 
-      input[type="button"] {
+      input[type="submit"] {
         background-color: #4caf50;
         color: #fff;
         cursor: pointer;
         transition: background-color 0.3s;
       }
 
-      input[type="button"]:hover {
+      input[type="submit"]:hover {
         background-color: #45a049;
       }
 
@@ -173,7 +173,7 @@
 
     <!-- Up to here -->
 
-    <form action="#">
+    <form action="#" onsubmit="login(event)">
       <div>
         <label for="text">Username</label>
         <input type="text" required name="email" />
@@ -182,7 +182,8 @@
         <label for="password">Password</label>
         <input type="password" required />
       </div>
-      <input type="button" value="Login" onclick="login()" />
+      <input type="submit" value="Login" />
+      <input type="reset" value="Reset" />
     </form>
   </body>
 
@@ -203,11 +204,12 @@
     let password = "Admin@123";
 
     // Login function invokes when the login button is clicked
-    function login() {
+    // Onsubmit()
+
+
+    function login(e) {
+      e.preventDefault();
       // Checks for empty values
-      if (inputPassword.value == "" || inputUsername == "") {
-        alert("Invalid Details");
-      } else {
         if (
           inputPassword.value == password &&
           inputUsername.value == username
@@ -225,6 +227,5 @@
           loginFailed.classList.add("show");
         }
       }
-    }
   </script>
 </html>
