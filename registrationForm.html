@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form{
+            max-width: 500px;
+            width: 500px;
+            height: auto;
+            padding: 15px;
+            background-color: aqua;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        form div{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        input{
+            height: 30px;
+            border: none;
+            border-bottom: 1px solid black;
+            padding: 10px;
+            background-color: transparent;
+            outline: none;
+            font-size: 17px;
+        }
+        input[type='submit'] , input[type = 'reset']{
+            border: 1px solid red;
+            border-radius: 20px;
+            padding-bottom: 5px;
+            cursor: pointer;
+
+        }
+        p{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+        <form action="#" onsubmit="validateForm()">
+            <div class="firstName">
+                <label for="firstName">Firstname</label>
+                <input type="text" required id="firstName" onblur="validateLength(document.getElementById('firstName') ,document.getElementById('firstNameFeedback') ,8 ,'First Name' , /^[a-zA-Z]{8,}$/ , 'Only Alphabets allowed'
+                )" minlength="8">
+                <p id="firstNameFeedback">
+                    </p>
+            </div>
+            <div class="lastName">
+                <label for="lastName">Last Name</label>
+                <input type="text" required id="lastName" onblur="validateLength(document.getElementById('lastName'),document.getElementById('lastNameFeedback'),8,'Last Name' , /^[a-zA-Z]{8,}$/ , 'Only Alphabets allowed')">
+                <p id="lastNameFeedback"></p>
+            </div>
+            <div class="userName">
+                <label for="userName">User Name</label>
+                <input type="text" required id="userName" >
+                <p class="userNameFeedback"></p>
+            </div>
+            <div class="password">
+                <label for="password">Password</label>
+                <input type="text" required id="password" onblur="validateLength(document.getElementById('password'), document.getElementById('passwordFeedback'), 8, 'Password', /^(?=.*[A-Z])(?=.*[\W_]).{8,}$/, 'Combination of alphabets, numbers and underscore required')" >
+
+                <p id="passwordFeedback"></p>
+            </div>
+            <div class="dateOfBirth">
+                <label for="dateOfBirth">Date of Birth</label>
+                <input type="date" required>
+                <p class="dateOfBirthFeedback"> </p>
+            </div>
+            <div class="postal">
+                <label for="password">Postal Code</label>
+                <input type="number" required id="postal"onblur="validateLength(document.getElementById('postal'),document.getElementById('postalFeedback'),6,'Postal Code' , /^\d{6}$/ , 'Enter 6 digit Valid Postal Code')">
+                <p id="postalFeedback"></p>
+            </div>
+            <div class="mobileNumber">
+                <label for="mobileNumber">Mobile Number</label>
+                <input type="tel" required id="mobileNumber" onblur="validateLength(document.getElementById('mobileNumber'),document.getElementById('mobileNumberFeedback'),10,'Mobile Number' , /^\d{10}$/ , 'Enter valid Mobile Number')" >
+                <p id="mobileNumberFeedback"></p>
+            </div>
+            <div class="email">
+                <label for="email">Email</label>
+                <input type="email" id="email" required onblur="validateLength(document.getElementById('email'),document.getElementById('emailFeedback'),5,'email' , /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/ , 'Enter valid mail EX:mailid@domainname.com')">
+                <p id="emailFeedback"> </p>
+            </div>
+
+            <input type="submit">
+            <input type="reset">
+        </form>
+
+        <script>
+            // Function to check the length of the input value that takes arguments inputbox , a feedback element , the limit of value , input type , regular expression to check the constraint , and a statement if the condition fails
+            function validateLength(inputBox , feedBack , limit , inputType , regex , statement){
+                let value = inputBox.value;
+                if(value.length < limit){
+                    feedBack.innerHTML = inputType+" should have lenght of " +" " +limit;
+                }
+                else{
+                    feedBack.innerHTML = checkCondition(regex , value , statement);
+                }
+            }
+
+
+            // Check for the matching pattern with the input value
+            function checkCondition(expresion , value , statement){
+                if(expresion.test(value) == true){
+                    return "";
+                }
+                else{
+                    return statement;
+                }
+            }
+            
+
+            // Invokes when form is submitted
+            function validateForm(){
+                alert("Form Subimitted");
+            }
+            
+        </script>
+</body>
+</html>
